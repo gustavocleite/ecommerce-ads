@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "email")
+@Table(name = "emails")
 public class Email extends  BaseModel{
     private String enderecoEmail;
     private LocalDateTime dataInicio;

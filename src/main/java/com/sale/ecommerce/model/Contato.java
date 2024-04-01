@@ -12,7 +12,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "contato")
+@Table(name = "contatos")
 public class Contato extends BaseModel{
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "endereco")
+@Table(name = "enderecos")
 public class Endereco extends BaseModel{
     private String logradouro;
     private LocalDateTime dataInicio;

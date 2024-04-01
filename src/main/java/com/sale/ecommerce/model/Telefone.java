@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "telefone")
+@Table(name = "telefones")
 public class Telefone extends BaseModel{
     private String ddd;
     private String numero;

@@ -20,7 +20,7 @@ spring:
       enabled: ${SPRING_OUTPUT_ANSI_ENABLE}
   banner:
       charset: ${SPRING_BANNER_CHARSET}
-      location: ${SPRING_BANNER_LOCATION}
+#      location: ${SPRING_BANNER_LOCATION}
   jpa:
     open-in-view: false
     database-platform: org.hibernate.dialect.H2Dialect
