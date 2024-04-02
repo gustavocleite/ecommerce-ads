@@ -1,8 +1,6 @@
 package com.sale.ecommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,9 +14,14 @@ import java.time.LocalDateTime;
 public class Email extends  BaseModel{
     @Column(name = "ENDERECO_EMAIL", nullable = false)
     private String enderecoEmail;
+
     @Column(name = "DATA_INICIO",nullable = false)
     private LocalDateTime dataInicio;
+
     @Column(name = "DATA_FIM", nullable = false)
     private LocalDateTime dataFim;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contato_id")
     private Contato contato;
 }

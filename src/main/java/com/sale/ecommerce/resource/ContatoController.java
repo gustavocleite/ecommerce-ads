@@ -22,6 +22,7 @@ public class ContatoController implements IContato<Contato,Integer> {
     public Contato create(@RequestBody Contato entity) {
         return contatoService.create(entity);
     }
+
     @GetMapping
     @Override
     public List<Contato> read() {

@@ -5,6 +5,7 @@ import com.sale.ecommerce.model.Pessoa;
 import com.sale.ecommerce.model.PessoaJuridica;
 import com.sale.ecommerce.repository.PessoaRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,9 @@ public class PessoaService implements IPessoa<Pessoa,Integer> {
     private PessoaRepository pessoaRepository;
 
     @Override
+    @Transactional
     public Pessoa create(Pessoa entity) {
+
         return pessoaRepository.save(entity);
     }
 
