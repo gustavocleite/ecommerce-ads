@@ -1,9 +1,8 @@
 package com.sale.ecommerce.model;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,14 +15,21 @@ import java.util.List;
 @Data
 @Table(name = "pessoas")
 public class Pessoa extends BaseModel {
-    private Integer id;
+    @Column( name = "nome", length = 100, nullable = false)
     private String nome;
+    @Column(name = "DATA_INICIO",nullable = false)
     private LocalDateTime dataInicio;
+    @Column(name = "DATA_FIM", nullable = false)
     private LocalDateTime dataFim;
-    private PessoaFisica pessoaFisica;
+
+    @OneToOne(mappedBy = "pessoa")
     private PessoaJuridica pessoaJuridica;
-    public List<Contato> contatos() {
-        return null;
-    }
+    @OneToOne(mappedBy = "pessoa")
+    private PessoaFisica pessoaFisica;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pessoa_id")
+    public  List<Contato> contatos ;
+
 
 }
