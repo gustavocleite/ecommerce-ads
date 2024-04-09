@@ -30,7 +30,7 @@ public class Pessoa extends BaseModel {
     @OneToOne(mappedBy = "pessoa")
     private PessoaFisica pessoaFisica;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "pessoa_id")
     public  List<Contato> contatos ;
 }

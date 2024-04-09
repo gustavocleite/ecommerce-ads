@@ -21,7 +21,7 @@ public class Email extends  BaseModel{
     @Column(name = "DATA_FIM", nullable = false)
     private LocalDateTime dataFim;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
     private Contato contato;
 }

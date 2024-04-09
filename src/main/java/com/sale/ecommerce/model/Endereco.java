@@ -20,7 +20,7 @@ public class Endereco extends BaseModel{
     @Column(name = "DATA_FIM", nullable = false)
     private LocalDateTime dataFim;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id")
     private Contato contato;
 }

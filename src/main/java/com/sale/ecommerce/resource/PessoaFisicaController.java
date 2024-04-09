@@ -3,8 +3,10 @@ package com.sale.ecommerce.resource;
 import com.sale.ecommerce.interfaces.IPessoaFisica;
 import com.sale.ecommerce.model.PessoaFisica;
 import com.sale.ecommerce.service.PessoaFisicaService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,29 +18,41 @@ public class PessoaFisicaController implements IPessoaFisica<PessoaFisica,Intege
     @Autowired
     private PessoaFisicaService pessoaFisicaService;
 
-    @PostMapping
+    @PostMapping(
+            consumes = {MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE}
+    )
     @Override
-    public PessoaFisica create(@RequestBody PessoaFisica entity) {
+    public PessoaFisica create(@Valid @RequestBody PessoaFisica entity) {
         return pessoaFisicaService.create(entity);
     }
-    @GetMapping
+    @GetMapping(
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     @Override
     public List<PessoaFisica> read() {
         return pessoaFisicaService.read();
     }
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     @Override
     public PessoaFisica read(@PathVariable Integer id) {
         return pessoaFisicaService.read(id);
     }
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/{id}",
+            consumes = {MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE}
+    )
     @Override
-    public PessoaFisica update(@PathVariable Integer id, @RequestBody PessoaFisica entity) {
+    public PessoaFisica update(@PathVariable Integer id,@Valid @RequestBody PessoaFisica entity) {
         return pessoaFisicaService.update(id,entity);
     }
-    @DeleteMapping
+    @DeleteMapping(
+            value = "/{id}"
+    )
     @Override
-    public void delete(@RequestBody Integer id) {
+    public void delete(@PathVariable Integer id) {
         pessoaFisicaService.delete(id);
     }
 }
