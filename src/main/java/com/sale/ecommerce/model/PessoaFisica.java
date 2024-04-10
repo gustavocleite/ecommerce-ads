@@ -13,6 +13,5 @@ public class PessoaFisica extends BaseModel{
     private String cpf;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pessoa_id", referencedColumnName = "id")
     private Pessoa pessoa;
 }

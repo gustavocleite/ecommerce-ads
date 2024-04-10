@@ -2,6 +2,7 @@ package com.sale.ecommerce.service;
 
 import com.sale.ecommerce.interfaces.IPessoa;
 import com.sale.ecommerce.model.Pessoa;
+import com.sale.ecommerce.model.PessoaFisica;
 import com.sale.ecommerce.model.PessoaJuridica;
 import com.sale.ecommerce.repository.PessoaRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -23,8 +24,9 @@ public class PessoaService implements IPessoa<Pessoa,Integer> {
     @Override
     @Transactional
     public Pessoa create(Pessoa entity) {
-
-        return pessoaRepository.save(entity);
+        Pessoa pessoaCriada = pessoaRepository.save(entity);
+        Integer idPessoa = pessoaCriada.getId();
+        return pessoaRepository.save(pessoaCriada);
     }
 
     @Override

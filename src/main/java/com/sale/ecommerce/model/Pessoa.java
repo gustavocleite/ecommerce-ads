@@ -27,10 +27,11 @@ public class Pessoa extends BaseModel {
     @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     private PessoaJuridica pessoaJuridica;
 
-    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL ,  fetch = FetchType.LAZY)
+    @JoinColumn(name = "pessoaFisica_id", referencedColumnName = "id")
     private PessoaFisica pessoaFisica;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "pessoa_id")
-    public  List<Contato> contatos ;
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+//    @JoinColumn(name = "pessoa_id")
+//    public  List<Contato> contatos ;
 }

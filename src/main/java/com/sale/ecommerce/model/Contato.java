@@ -13,6 +13,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "contatos")
+
 public class Contato extends BaseModel{
     @Column(name = "DATA_INICIO",nullable = false)
     private LocalDateTime dataInicio;
