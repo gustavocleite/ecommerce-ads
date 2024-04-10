@@ -22,13 +22,13 @@ public class Contato extends BaseModel{
     @ManyToOne(fetch = FetchType.LAZY)
     private Pessoa pessoa;
 
-    @OneToMany(mappedBy = "contato", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "contato", cascade = CascadeType.ALL, orphanRemoval = true,  fetch = FetchType.LAZY)
     private List<Email> emails = new ArrayList<>();
 
-    @OneToMany(mappedBy = "contato",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "contato",cascade = CascadeType.ALL, orphanRemoval = true,  fetch = FetchType.LAZY)
     private List<Endereco> enderecos = new ArrayList<>();;
 
-    @OneToMany(mappedBy = "contato",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "contato",cascade = CascadeType.ALL, orphanRemoval = true,  fetch = FetchType.LAZY)
     private List<Telefone> telefones = new ArrayList<>();;
 
 }

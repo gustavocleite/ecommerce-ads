@@ -24,13 +24,13 @@ public class Pessoa extends BaseModel {
     @Column(name = "DATA_FIM", nullable = false)
     private LocalDateTime dataFim;
 
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     private PessoaJuridica pessoaJuridica;
 
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
     private PessoaFisica pessoaFisica;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "pessoa_id")
     public  List<Contato> contatos ;
 }

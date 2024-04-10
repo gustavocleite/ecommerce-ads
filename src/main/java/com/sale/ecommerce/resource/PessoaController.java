@@ -25,8 +25,8 @@ public class PessoaController implements IPessoa<Pessoa,Integer> {
     )
     @Override
     public Pessoa create(@Valid @RequestBody Pessoa entity) {
-//        log.info("Resource: {}, método: {}",
-//                ContatoService.class.getCanonicalName(),
+        log.info("Resource: {}, método: {}",
+                ContatoService.class.getCanonicalName());
 //                ContatoService.class.getEnclosingMethod().getName());
         return pessoaService.create(entity);
     }
@@ -35,8 +35,8 @@ public class PessoaController implements IPessoa<Pessoa,Integer> {
     )
     @Override
     public List<Pessoa> read() {
-//        log.info("Resource: {}, método: {}",
-//                ContatoService.class.getCanonicalName(),
+        log.info("Resource: {}, método: {}",
+                ContatoService.class.getCanonicalName());
 //                ContatoService.class.getEnclosingMethod().getName());
         return pessoaService.read();
     }
